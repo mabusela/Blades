@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.container-matches {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+header {
+    background-color: #e44d26; /* Orange */
+    padding: 15px;
+    text-align: center;
+    color: white;
+}
+nav {
+    background-color: #007849; /* Green */
+    overflow: hidden;
+}
+nav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+nav a:hover {
+    background-color: #004b2e; /* Dark green */
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+label {
+    display: block;
+    margin: 10px 0;
+}
+input {
+    padding: 8px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.matches-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.matches {
+    flex: 1;
+    margin-right: 10px; /* Adjust spacing between columns */
+}
+
+.chart-container {
+    flex: 1;
+}
+
+/* Add any additional styling as needed */
