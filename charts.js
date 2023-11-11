@@ -3,35 +3,48 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Sample data for illustration purposes
     const performanceData = {
-        wins: 3,
-        draws: 1,
-        losses: 2,
+        labels: ["Game 1", "Game 2", "Game 3", "Game 4", "Game 5", "Game 6"],
+        wins: [1, 0, 1, 0, 0,1],  // Replace with actual data
+        draws: [0, 0, 0, 1, 0,0], // Replace with actual data
+        losses: [0, 1, 0, 0, 1,0], // Replace with actual data
     };
+
+    const cumulativeWins = calculateCumulative(performanceData.wins);
+    const cumulativeDraws = calculateCumulative(performanceData.draws);
+    const cumulativeLosses = calculateCumulative(performanceData.losses);
 
     const ctx = document.getElementById("teamPerformanceChart").getContext("2d");
 
     const performanceChart = new Chart(ctx, {
-        type: "bar",
+        type: "line",
         data: {
-            labels: ["Wins", "Draws", "Losses"],
-            datasets: [{
-                label: "Team Performance",
-                data: [performanceData.wins, performanceData.draws, performanceData.losses],
-                backgroundColor: [
-                    "rgba(75, 192, 192, 0.7)", // Wins
-                    "rgba(255, 206, 86, 0.7)", // Draws
-                    "rgba(255, 99, 132, 0.7)", // Losses
-                ],
-                borderColor: [
-                    "rgba(75, 192, 192, 1)", // Wins
-                    "rgba(255, 206, 86, 1)", // Draws
-                    "rgba(255, 99, 132, 1)", // Losses
-                ],
-                borderWidth: 1,
-            }],
+            labels: performanceData.labels,
+            datasets: [
+                {
+                    label: "Cumulative Wins",
+                    data: cumulativeWins,
+                    borderColor: "rgba(75, 192, 192, 1)",
+                    fill: false,
+                },
+                {
+                    label: "Cumulative Draws",
+                    data: cumulativeDraws,
+                    borderColor: "rgba(255, 206, 86, 1)",
+                    fill: false,
+                },
+                {
+                    label: "Cumulative Losses",
+                    data: cumulativeLosses,
+                    borderColor: "rgba(255, 99, 132, 1)",
+                    fill: false,
+                },
+            ],
         },
         options: {
             scales: {
+                x: {
+                    beginAtZero: true,
+                },
                 y: {
                     beginAtZero: true,
                 },
@@ -39,3 +52,11 @@ document.addEventListener("DOMContentLoaded", function () {
         },
     });
 });
+
+function calculateCumulative(data) {
+    return data.reduce((cumulative, value) => {
+        const prevTotal = cumulative.length > 0 ? cumulative[cumulative.length - 1] : 0;
+        cumulative.push(prevTotal + value);
+        return cumulative;
+    }, []);
+}
