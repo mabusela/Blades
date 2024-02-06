@@ -4,10 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Sample data for illustration purposes
     const performanceData = {
         labels: ["Game 1", "Game 2", "Game 3", "Game 4", "Game 5", "Game 6", "Game 7","Game 8","Game 9","Game 10","Game 11"
-        ,"Game 12","Game 13","Game 14","Game 15","Game 16","Game 17","Game 18"],
-        wins: [1, 0, 1, 0, 0,1,1,1,0,0,0,1,1,1,0,0,0,0],  // Replace with actual data
-        draws: [0, 0, 0, 1, 0,0,0,0,0,0,1,0,0,0,1,0,1,0], // Replace with actual data
-        losses: [0, 1, 0, 0, 1,0,0,0,1,1,0,0,0,0,0,1,1,0], // Replace with actual data
+        ,"Game 12","Game 13","Game 14","Game 15","Game 16","Game 17","Game 18","Game 19"],
+        wins: [1, 0, 1, 0, 0,1,1,1,0,0,0,1,1,1,0,0,0,0,1],  // Replace with actual data
+        draws: [0, 0, 0, 1, 0,0,0,0,0,0,1,0,0,0,1,0,1,0,0], // Replace with actual data
+        losses: [0, 1, 0, 0, 1,0,0,0,1,1,0,0,0,0,0,1,1,0,0], // Replace with actual data
     };
 
     const cumulativeWins = calculateCumulative(performanceData.wins);
